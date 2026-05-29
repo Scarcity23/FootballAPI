@@ -17,6 +17,7 @@ class APIWrapper:
             except requests.exceptions.HTTPError as e:
                 if response.status_code == 429:  # rate limited
                     time.sleep(delay)
+                    print(f'Rate Limited, Waiting {delay} Seconds')
                     delay *= 2
                 else:
                     print(f"HTTP error: {e}")
